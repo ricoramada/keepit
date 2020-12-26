@@ -46,6 +46,28 @@ class LoginController extends Controller
         }
     }
 
+    public function register(){
+        return view('auth.register');
+    }
+
+    public function store(Request $request){
+        $count1 = Kontak::where('email',$request->email);
+        $count2 = Kontak::where('username',$request->username);
+        if($count1->count()<1 && $count2->count()<1){
+            Kontak::create([
+                'email' => $request->email,
+                'phone' => $request->phone,
+                'level' => 'user',
+                'username' => $request->username,
+                'password' => md5($request->password),
+            ]);
+            return redirect('login');
+        }else{
+            Session::flash('message', 'Email dan Username sudah tersedia');
+            return redirect()->back();
+        }
+        }
+
     public function logout(){
         Session::flush();
         return redirect('login');

@@ -18,3 +18,6 @@
 Route::get('login', 'LoginController@login');
 Route::post('login/cek', 'LoginController@cek');
 Route::get('logout', 'LoginController@logout');
+
+Route::get('register', 'LoginController@register');
+Route::post('login', 'LoginController@store');

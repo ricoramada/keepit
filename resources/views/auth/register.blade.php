@@ -30,13 +30,29 @@
 					<img src="{{asset('images/img-01.png')}}" alt="IMG">
 				</div>
 
-				<form class="login100-form validate-form" action="{{ url('/login/cek') }}" method="post">
+				<form class="login100-form validate-form" action="{{ url('/login') }}" method="post">
 					@csrf
 					<span class="login100-form-title">
-						Sign In
+						Sign Up
 					</span>
 
 					<div class="wrap-input100 validate-input" data-validate = "Valid email is required: ex@abc.xyz">
+						<input class="input100" type="text" name="email" placeholder="Email">
+						<span class="focus-input100"></span>
+						<span class="symbol-input100">
+							<i class="fa fa-envelope" aria-hidden="true"></i>
+						</span>
+					</div>
+
+					<div class="wrap-input100 validate-input" data-validate = "Phone number is required">
+						<input class="input100" type="text" name="phone" placeholder="Phone">
+						<span class="focus-input100"></span>
+						<span class="symbol-input100">
+							<i class="fa fa-user" aria-hidden="true"></i>
+						</span>
+					</div>
+
+					<div class="wrap-input100 validate-input" data-validate = "Username is required">
 						<input class="input100" type="text" name="username" placeholder="Username">
 						<span class="focus-input100"></span>
 						<span class="symbol-input100">
@@ -54,14 +70,15 @@
 					
 					<div class="container-login100-form-btn">
 						<button  type="submit" class="login100-form-btn">
-							Login
+							Register
 						</button>
 					</div>
 
 					<div class="text-center p-t-136">
+					<i class="fa fa-long-arrow-left m-l-5" aria-hidden="true"></i>
 						<a class="txt2" href="#">
-							Create your Account
-							<i class="fa fa-long-arrow-right m-l-5" aria-hidden="true"></i>
+							Back
+
 						</a>
 					</div>
 				</form>
